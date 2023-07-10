@@ -66,4 +66,4 @@ clean_mill:
 
 clean_all: clean clean_mill
 
-.PHONY: clean clean_all clean_mill srun run sim 
+.PHONY: clean clean_all clean_mill srun run sim verilog
