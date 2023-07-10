@@ -25,7 +25,7 @@ $(TOP_V): $(SCALA_FILE)
 verilog: $(TOP_V)
 
 vcd ?= 
-ifeq ($(vcd), y)
+ifeq ($(vcd), 1)
 	CFLAGS += -DVCD
 endif
 
