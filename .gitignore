@@ -1,0 +1,4 @@
+*
+!.gitignore
+!out/
+!build/
