@@ -16,8 +16,6 @@ VERILATOR_FLAGS +=  -MMD --trace --build -cc --exe \
 # timescale set
 VERILATOR_FLAGS += --timescale 1us/1us
 
-.default: verilog
-
 $(TOP_V): $(SCALA_FILE)
 	@mkdir -p $(@D)
 	mill $(TOP).runMain $(MAIN) -td $(@D) --output-file $(@F)
@@ -33,7 +31,6 @@ endif
 INC_PATH += $(abspath ./sim_c/include)
 INCFLAGS = $(addprefix -I, $(INC_PATH))
 CFLAGS += $(INCFLAGS) $(CFLAGS_SIM) -DTOP_NAME="V$(TOPNAME)"
-LDFLAGS += -lSDL2 -lSDL2_image -lreadline
 
 # source file
 VSRCS = $(TOP_V)
@@ -41,8 +38,6 @@ CSRCS = $(shell find $(abspath ./sim_c) -name "*.c" -or -name "*.cc" -or -name "
 
 BIN = $(BUILD_DIR)/$(TOP)
 NPC_EXEC := $(BIN)
-
-CFLAGS += -std=c++14 -fno-exceptions -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS
 
 sim: $(CSRCS) $(VSRCS)
 	@rm -rf $(OBJ_DIR)
