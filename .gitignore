@@ -1,4 +1,6 @@
-*
+/*
 !.gitignore
-!out/
-!build/
+!build.sc
+!Makefile
+!/src
+!/sim_c
