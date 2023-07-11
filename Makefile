@@ -49,8 +49,12 @@ run:
 	@echo
 	@echo "------------ RUN --------------"
 	$(NPC_EXEC)
-	@echo "----- if you need vcd file. add vcd=y to make ----"
-
+ifeq ($(vcd), 1)
+	@echo "----- see vcd file in logs dir ----"
+else
+	@echo "----- if you need vcd file. add vcd=1 to make ----"
+endif
+	
 srun: sim run
 
 clean:
