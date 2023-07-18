@@ -18,7 +18,7 @@ VERILATOR_FLAGS += --timescale 1us/1us
 
 $(TOP_V): $(SCALA_FILE)
 	@mkdir -p $(@D)
-	mill $(TOP).runMain $(MAIN) -td $(@D) --output-file $(@F)
+	mill -i $(TOP).runMain $(MAIN) -td $(@D) --output-file $(@F)
 
 verilog: $(TOP_V)
 
