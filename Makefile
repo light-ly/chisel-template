@@ -16,7 +16,7 @@ VERILATOR_FLAGS += -Wall -MMD --trace --build -cc --exe \
 # timescale set
 VERILATOR_FLAGS += --timescale 1us/1us
 
-verilog:
+verilog: $(SCALA_FILE)
 	@mkdir -p $(BUILD_DIR)/verilog
 	mill -i $(TOP).runMain $(MAIN) -td $(BUILD_DIR)/verilog --emit-modules verilog
 
