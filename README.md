@@ -5,7 +5,7 @@
 
 本模板适用于编写 chisel 并使用 Verilator 进行仿真的电路设计。在 Makefile 中指定了 Chisel 转 Verilog，编译仿真文件，执行仿真文件，编译并执行仿真文件等目标，使用 mill 工具进行 Chisel 工程的构建。可以方便的实现 Chisel 工程的练习。
 
-本模板编写了一个使用 `MuxLookup` 实现的 38 译码器。
+本模板编写了一个使用 `Mux` 和 `RegNext` 实现的序列检测模块。
 
 # 运行工程
 
@@ -76,5 +76,5 @@ make clean_mill
 # 编写自己的工程
 
 请移步到：
-- [我的博客，Chisel 工程框架搭建（mill + verilator）](https://light-liuyi.top:2001/2023/06/29/chisel-template)
+- [我的博客，Chisel 工程框架搭建（mill + verilator）](https://light-liuyi.top:2001/2023/07/10/chisel-template)
 - [我的知乎，Chisel 工程框架搭建（mill + verilator）](https://zhuanlan.zhihu.com/p/642588946)

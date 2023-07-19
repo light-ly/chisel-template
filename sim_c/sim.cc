@@ -65,16 +65,19 @@ void sim_main(int argc, char *argv[]) {
 	sim_init(argc, argv);
 	reset(10);
 
+	/* main simulation*/
+	int sim_time = 0;
+	int seq_ptr = 0;
+	int seq[] = {1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0};
+
 	/* main loop */
-	while (!contextp->gotFinish()) {
-    for (int i = 0; i < 8; i++) {
-			top->io_in = i;
-			top->eval();
-			cout << "in: " << i << endl;
-			cout << "out: " << bitset<8>(top->io_out) << endl;
-		}
-		break;
-		// single_cycle();
+	while (!contextp->gotFinish() && (sim_time <= 20)) {
+		seq_ptr = (seq_ptr + 1) % 14;
+		top->io_in = seq[seq_ptr];
+		single_cycle();
+		cout << "in: " << seq[seq_ptr] << "\t";
+		cout << "out: " << bitset<1>(top->io_out) <<endl;
+		sim_time++;
 	}
 
 	sim_exit();
